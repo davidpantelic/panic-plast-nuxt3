@@ -31,7 +31,7 @@
   </article>
 </template>
 
-<script lang="ts" setup>
+<script lang="js" setup>
 // Initialize form state with default properties
 const contactForm = ref({
   name: '',

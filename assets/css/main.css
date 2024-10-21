@@ -78,7 +78,7 @@ ul.nav-tabs a:hover:after {
 .skip-content-link {
   background: #acbc90;
   height: 30px;
-  left: 50%;
+  left: 30%;
   padding: 8px;
   position: absolute;
   transform: translateY(-100%);

@@ -42,6 +42,8 @@
 </template>
 
 <script lang="ts" setup>
+const { focusKontakt } = useFocusKontakt();
+
 const navTabs = computed(() => [
   {
     name: 'Pocetna',
@@ -70,14 +72,6 @@ const handleScroll = () => {
 
 function toggleBurger() {
   isBurgerOpen.value = !isBurgerOpen.value;
-}
-
-function focusKontakt() {
-  setTimeout(() => {
-    const contactSection: any = document.querySelector('#kontakt');
-    contactSection.setAttribute('tabindex', '-1');
-    contactSection.focus();
-  }, 200);
 }
 
 function homepageTop() {

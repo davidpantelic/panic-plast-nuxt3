@@ -53,6 +53,8 @@
 </template>
 
 <script lang="ts" setup>
+const { focusKontakt } = useFocusKontakt();
+
 const actionWord = ref('Povoljni');
 
 let intervalId: any;
@@ -76,12 +78,4 @@ const scrollToNextSection = () => {
   const section: any = document.querySelector('main > section:not(:first-of-type)');
   section.scrollIntoView({ behavior: 'smooth' });
 };
-
-function focusKontakt() {
-  setTimeout(() => {
-    const contactSection: any = document.querySelector('#kontakt');
-    contactSection.setAttribute('tabindex', '-1');
-    contactSection.focus();
-  }, 200);
-}
 </script>
