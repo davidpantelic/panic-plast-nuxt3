@@ -1,14 +1,29 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 // import { resolve } from 'path'
-export default defineNuxtConfig({
+export default {
+  typescript: {
+    shim: false, // Disable TypeScript shims
+  },
   compatibilityDate: '2024-04-03',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   devServer: {
     port: 4000
   },
   css: [
     '~/assets/css/main.css'
   ],
+  image: {
+    format: ['webp', 'jpeg', 'jpg', 'png'],
+    screens: {
+      'xs': 320,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
+      '2xl': 1536
+    },
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -39,11 +54,9 @@ export default defineNuxtConfig({
       }
     }
   },
-
   // routeRules: {
   //   '/': { prerender: true }
   // },
-
   app: {
     head: {
       title: 'Panić Plast',
@@ -80,6 +93,6 @@ export default defineNuxtConfig({
       ],
     },
   },
-
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/icon']
-})
+  modules: ['@nuxt/ui', '@nuxtjs/tailwindcss', '@nuxt/icon', '@nuxt/image']
+  // 'nuxt-vitalizer'
+}

@@ -4,7 +4,7 @@
     <form @submit.prevent="submitForm" novalidate>
 
       <div class="form-group">
-        <label>ime: * <span class="sr-only">obavezno polje</span>
+        <label>Ime: * <span class="sr-only">obavezno polje</span>
           <span v-if="showErrors && !contactForm.name">Ovo polje je obavezno</span>
           <input name="name" type="text" v-model="contactForm.name" autocomplete="name" required />
         </label>
@@ -31,7 +31,7 @@
   </article>
 </template>
 
-<script lang="js" setup>
+<script setup>
 // Initialize form state with default properties
 const contactForm = ref({
   name: '',

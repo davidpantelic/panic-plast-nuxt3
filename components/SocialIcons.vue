@@ -6,7 +6,7 @@
   </ul>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 const socIcons = computed(() => [
   {
     name: 'ic:baseline-facebook',

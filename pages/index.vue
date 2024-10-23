@@ -1,6 +1,6 @@
 <template>
-    <main class="bg-brand-green">
-    <section class="hp-cover w-full h-[60vh] md:h-screen flex items-center justify-center flex-col bg-fixed bg-brand-black relative">
+  <main class="bg-brand-green">
+    <section class="hp-cover w-full h-[60vh] md:h-screen flex items-center justify-center flex-col bg-fixed bg-brand-black relative" :style="hpCoverBackgroundStyles">
       <h1 class="text-white text-center"><span class="block mb-2 text-[1.5em]">{{ actionWord }}</span> proizvodi od plastike</h1>
       <h2 class="mt-5 text-white uppercase">Panić Plast</h2>
       <NuxtLink to="/proizvodi" class="btn-1" active-class="" exact-active-class="">Katalog proizvoda</NuxtLink>
@@ -8,7 +8,7 @@
     </section>
 
     <section id="main-content">
-      <div class="prod-desc flex flex-wrap gap-5 md:gap-10 justify-between items-center px-5 pt-[4%] text-center max-w-[1700px] mx-auto">
+      <div class="prod-desc flex flex-wrap gap-5 md:gap-10 justify-between items-center px-5 pt-[4%] text-center max-w-[1700px] mx-auto text-brand-black">
         <article class="w-full md:w-1/4 order-2 xl:order-1">
           <h2 class="mb-5">Ekološki prihvatljivi</h2>
           <p>Razumemo važnost zaštite životne sredine, zbog čega smo posvećeni proizvodnji <strong>ekološki prihvatljivih</strong> proizvoda. Naši proizvodi su napravljeni od netoksičnih materijala koji se mogu reciklirati, što obezbeđuje minimalan uticaj na životnu sredinu.</p>
@@ -30,7 +30,7 @@
 
     <TopProds />
 
-    <section class="black-text-box bg-brand-black text-brand-yellow p-[5%] flex gap-x-5 flex-col lg:flex-row text-center lg:text-left">
+    <section class="black-text-box bg-brand-black text-brand-yellow p-[5%] flex gap-x-5 flex-col lg:flex-row text-center lg:text-left" :style="BTPCoverBackgroundStyles">
       <div class="flex flex-wrap gap-y-5 flex-col w-full lg:w-1/2 lg:flex-row justify-center">
         <article class="w-full">
           <h2 class="mb-3">Visok kvalitet</h2>
@@ -52,12 +52,22 @@
   </main>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 const { focusKontakt } = useFocusKontakt();
+
+const img = useImage()
+const hpCoverBackgroundStyles = computed(() => {
+  const imgUrl = img('/images/products/jpg/pc_plasticna_cisterna_5.jpg', { width: 1000 })
+  return { backgroundImage: `url('${imgUrl}')` }
+})
+const BTPCoverBackgroundStyles = computed(() => {
+  const imgUrl = img('/images/products/jpg/pvr_plasticni_vertikalni_rezervoari_4.jpg', { width: 800 })
+  return { backgroundImage: `url('${imgUrl}')` }
+})
 
 const actionWord = ref('Povoljni');
 
-let intervalId: any;
+let intervalId;
 
 const changeTitle = () => {
   intervalId = setInterval(() => {
@@ -75,7 +85,7 @@ onUnmounted(() => {
 });
 
 const scrollToNextSection = () => {
-  const section: any = document.querySelector('main > section:not(:first-of-type)');
+  const section = document.querySelector('main > section:not(:first-of-type)');
   section.scrollIntoView({ behavior: 'smooth' });
 };
 </script>
