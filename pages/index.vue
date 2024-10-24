@@ -3,7 +3,10 @@
     <section class="hp-cover w-full h-[60vh] md:h-screen flex items-center justify-center flex-col bg-fixed bg-brand-black relative" :style="hpCoverBackgroundStyles">
       <h1 class="text-white text-center"><span class="block mb-2 text-[1.5em]">{{ actionWord }}</span> proizvodi od plastike</h1>
       <h2 class="mt-5 text-white uppercase">Panić Plast</h2>
-      <NuxtLink to="/proizvodi" class="btn-1" active-class="" exact-active-class="">Katalog proizvoda</NuxtLink>
+      <div class="flex flex-wrap gap-3">
+        <NuxtLink to="/proizvodi" class="btn-1" active-class="" exact-active-class="">Katalog proizvoda</NuxtLink>
+        <a href="/#kontakt" class="btn-1">Kontakt</a>
+      </div>
       <Icon @click="scrollToNextSection()" name="solar:round-arrow-down-bold" class="absolute bottom-5 text-white text-5xl animate-bounce cursor-pointer"><span class="sr-only text-white">Skroluj na dole do sledeće sekcije</span></Icon>
     </section>
 

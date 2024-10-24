@@ -4,7 +4,7 @@
     <nav :class="[isScrolling ? 'py-4' : 'py-5 bg-opacity-90']" class="bg-brand-black text-white fixed top-0 w-full flex justify-end px-6 lg:px-10 z-50">
 
       <button @click="homepageTop" class="absolute h-28 sm:h-32 top-2 left-3 hover:scale-105 z-10 transition-all">
-        <NuxtImg src="/panic_plast.png" alt="Panić Plast" :class="[isScrolling ? 'h-4/5' : 'h-full']" class="inline mr-3 transition-all" />
+        <NuxtImg src="/logo/panic_plast_logo.png" alt="Panić Plast" :class="[isScrolling ? 'h-4/5' : 'h-full']" class="inline mr-3 transition-all" />
       </button>
 
       <ul class="nav-tabs items-center gap-5 hidden lg:flex mr-5">

@@ -11,7 +11,7 @@
         <p><a href="https://maps.app.goo.gl/zc7qfNHjkj58hweW8" target="_blank" class="hover:underline"><span class="sr-only">Lokacija na Google Maps </span>Dragijevica bb, 14253 Osečina, Srbija<span class="sr-only"> - otvara se u novom tabu</span></a></p>
         <p>Matični broj: 67674944</p>
         <p>PIB: 114560658</p>
-        <NuxtImg src="/panic_plast.png" alt="Panić Plast,Izrada proizvoda od plastike" class="max-h-56 max-w-full mx-auto mt-5" />
+        <NuxtImg src="/logo/panic_plast_logo.png" alt="Panić Plast,Izrada proizvoda od plastike" class="max-h-56 max-w-full mx-auto mt-5" />
       </article>
 
       <ContactForm class="w-full xl:w-[430px] max-w-[430px] m-5 lg:m-0" />

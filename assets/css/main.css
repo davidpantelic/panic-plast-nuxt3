@@ -166,3 +166,9 @@ button.navbar-toggler:focus:not(:focus-visible) {
   box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.7);
 } */
 /* Proizvodi end */
+
+/* Single product page */
+.single-product-page section img {
+  aspect-ratio: 1/1;
+}
+/* Single product page end */
