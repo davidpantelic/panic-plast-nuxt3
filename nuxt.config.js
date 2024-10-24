@@ -95,4 +95,5 @@ export default {
   },
   modules: ['@nuxt/ui', '@nuxtjs/tailwindcss', '@nuxt/icon', '@nuxt/image']
   // 'nuxt-vitalizer'
+  // 'nuxt-mail'
 }

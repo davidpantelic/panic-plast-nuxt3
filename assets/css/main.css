@@ -151,6 +151,23 @@ button.navbar-toggler:focus:not(:focus-visible) {
   @apply text-black bg-brand-yellow rounded-md mb-3 p-2 block w-full mt-1 border-2 border-brand-black;
 }
 
+/* Change autocomplete styles in WebKit */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 2px solid #081107;
+  -webkit-text-fill-color: #081107;
+  -webkit-box-shadow: 0 0 0px 1000px #FFF8DC inset;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: #081107;
+};
+
 .ada-form textarea {
   @apply min-h-20;
   position: relative;

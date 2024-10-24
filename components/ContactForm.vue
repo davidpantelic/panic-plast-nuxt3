@@ -27,6 +27,7 @@
 
       <!-- Display a success message if the form is submitted successfully -->
       <p class="m-0"><span class="text-[1.3em]">{{ successMessage }}</span>&nbsp;</p>
+      <p class="m-0"><span class="text-[1.3em]">{{ errorMessage }}</span></p>
     </form>
   </article>
 </template>
@@ -44,6 +45,7 @@ const showErrors = ref(false);
 
 // Success message state
 const successMessage = ref('');
+const errorMessage = ref('');
 
 // Computed property to validate email format
 const isValidEmail = computed(() => {
@@ -84,31 +86,27 @@ const submitForm = async () => {
   if (!isFormValid()) {
     const firstInvalidInput = document.querySelector('form [required]:invalid');
     if (firstInvalidInput) {
-      // firstInvalidInput.focus();
+      firstInvalidInput.focus();
     }
     return;
   }
 
   try {
-    successMessage.value = 'Poruka se šalje';
-    const response = await fetch('http://localhost/webdak-php-mailer/send-email.php', {
+    successMessage.value = 'Poruka se šalje...';
+    const response = await $fetch('/api/send-email', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(contactForm.value),
+      body: contactForm.value,
     });
 
-    const result = await response.json();
-    if (result.status === 'success') {
-      successMessage.value = 'Poruka je uspešno poslata.';
-      contactForm.value = { name: '', email: '', message: '' };
-      showErrors.value = false;
-    } else {
-      console.error(result.message);
-    }
+    successMessage.value = response.message;
+    errorMessage.value = response.error;
+    contactForm.value = { name: '', email: '', message: '' };
+    showErrors.value = false;
+    setTimeout(() => {
+      successMessage.value = '';
+    }, 3000);
   } catch (error) {
-    console.error('Form submission failed:', error);
+    successMessage.value = 'Neuspešno slanje poruke.';
   }
 };
 </script>
